@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from .database import engine, Base
 from .routers import about, projects, contact
 from fastapi.middleware.cors import CORSMiddleware
+from . import schemas
 
 # Create all tables
 Base.metadata.create_all(bind=engine)
@@ -25,6 +26,7 @@ app.include_router(contact.router)  # remove if not using contact
 @app.get("/")
 def root():
     return {"message": "Welcome to my Portfolio API"}
+
 
 if __name__ == "__main__":
     uvicorn.run("app.main:app", host="localhost", port=8000, reload=True)

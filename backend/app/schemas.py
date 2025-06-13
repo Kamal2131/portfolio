@@ -18,3 +18,10 @@ class ContactIn(BaseModel):
     name: str
     email: EmailStr
     message: str
+    
+class ProjectCreate(BaseModel):
+    title: str
+    description: str
+    tech_stack: str
+    repo_url: HttpUrl
+    demo_url: Optional[HttpUrl] = None
